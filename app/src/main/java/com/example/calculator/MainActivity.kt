@@ -34,14 +34,17 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+
     private fun updateText(strToAdd: String) {
 
         val oldStr = binding.displayText.text.toString()
         val cursorPos = binding.displayText.selectionStart
         val leftStr = oldStr.substring(0, cursorPos)
         val rightsStr = oldStr.substring(cursorPos)
+
         binding.displayText.setText(String.format("%s%s%s", leftStr, strToAdd, rightsStr))
         binding.displayText.setSelection(cursorPos + 1)
+
     }
 
     fun plusMinusBtn(view: View) {
