@@ -323,13 +323,16 @@
 
     <EditText
         android:id="@+id/displayText"
-        android:background="@null"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:autofillHints="false"
+        android:background="@null"
+        android:digits="0123456789()/*+-."
         android:gravity="end"
+        android:hint="Text"
         android:inputType="none"
         android:lines="3"
+        android:longClickable="false"
         android:text="@string/display"
         android:textAlignment="textEnd"
         android:textSize="36sp"
@@ -347,6 +350,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginBottom="8dp"
         android:background="@drawable/circle"
         android:contentDescription="@string/backspace"
         android:onClick="backspaceBtn"
@@ -354,6 +360,20 @@
         app:layout_constraintBottom_toTopOf="@+id/tableLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tableLayout"
         app:srcCompat="@drawable/backspace" />
+
+    <ImageButton
+        android:id="@+id/historyBTN"
+        android:background="@null"
+        android:src="@drawable/history"
+        android:layout_width="85dp"
+        android:layout_height="85dp"
+        android:contentDescription="@string/history"
+        android:onClick="buttonPressed"
+        app:layout_constraintBottom_toTopOf="@+id/tableLayout"
+        app:layout_constraintEnd_toEndOf="@+id/tableLayout"
+        app:layout_constraintHorizontal_bias="0.03"
+        app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

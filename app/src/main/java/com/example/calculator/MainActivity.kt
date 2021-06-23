@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.text.SpannableStringBuilder
 import android.util.Log
 import android.view.View
+import android.widget.ImageButton
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
@@ -14,6 +15,7 @@ import net.objecthunter.exp4j.ExpressionBuilder
 
 
 class MainActivity : AppCompatActivity() {
+    var revert: Boolean = false
 
     private lateinit var binding: ActivityMainBinding
 
@@ -24,7 +26,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.displayText.setText("")
-        binding.displayText.showSoftInputOnFocus = false
+        binding.displayText.showSoftInputOnFocus = true
 
         binding.displayText.setOnClickListener {
             if (getString(R.string.display) == binding.displayText.text.toString()) {
@@ -70,12 +72,13 @@ class MainActivity : AppCompatActivity() {
         variableSymbol = variableSymbol.replace("÷", "/")
         variableSymbol = variableSymbol.replace("×", "*")
 
-        val expression = ExpressionBuilder(variableSymbol).build()
+
         val result: Double
         try {
+            val expression = ExpressionBuilder(variableSymbol).build()
             result = expression.evaluate()
         } catch (t: Throwable) {
-            Toast.makeText(applicationContext, "Can not calculate this expression! ", Toast.LENGTH_SHORT).show()
+            Toast.makeText(applicationContext, "Can not calculate this expression!", Toast.LENGTH_SHORT).show()
             return
         }
 
@@ -131,6 +134,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun sevenBtn(view: View) {
+        //buttonEffect(findViewById(R.id.sevenBTN))
         updateText("7")
     }
 
@@ -163,6 +167,18 @@ class MainActivity : AppCompatActivity() {
         updateText("÷")
     }
 
+    fun buttonPressed(view: View) {
+        val button = findViewById<ImageButton>(R.id.historyBTN)
+        var icon = R.drawable.history
+
+        if (revert) {
+            icon = R.drawable.history_revert_calculator
+        }
+
+        button.setImageResource(icon)
+        revert = !revert
+    }
+
     fun backspaceBtn(view: View) {
 
         val cursorPos = binding.displayText.selectionStart
@@ -175,6 +191,21 @@ class MainActivity : AppCompatActivity() {
             binding.displayText.setSelection(cursorPos - 1)
         }
     }
+    /* fun buttonEffect(button: View) {
+         button.setOnTouchListener { v, event ->
+             when (event.action) {
+                 MotionEvent.ACTION_DOWN -> {
+                     v.background.setColorFilter(-0x1f0b8adf, PorterDuff.Mode.DST)
+                     v.invalidate()
+                 }
+                 MotionEvent.ACTION_UP -> {
+                     v.background.clearColorFilter()
+                     v.invalidate()
+                 }
+             }
+             false
+         }
+     }*/
 }
 
 
