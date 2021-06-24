@@ -26,8 +26,8 @@
     <string name="backspace"> </string>
     <string name="history"> </string>
 
-    <string name="display">Text</string>
+    <string name="display">Текст</string>
 
-    <string name="please_write_a_condition">Please write a condition!</string>
-    <string name="can_not_calculate_this_expression">Can not calculate this expression!</string>
+    <string name="please_write_a_condition">Будь ласка, напишіть умову!</string>
+    <string name="can_not_calculate_this_expression">Не можу обчислити цей вираз!</string>
 </resources>

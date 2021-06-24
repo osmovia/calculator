@@ -50,27 +50,33 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun plusMinusBtn(view: View) {
-        updateText("-")
+        val stringText = getString(R.string.plusMinus)
+        updateText(stringText)
 
     }
 
     fun zeroBtn(view: View) {
-        updateText("0")
+        val stringText = getString(R.string.zero)
+        updateText(stringText)
     }
 
     fun pointBtn(view: View) {
-        updateText(".")
+        val stringText = getString(R.string.point)
+        updateText(stringText)
     }
 
     fun equalsBtn(view: View) {
         if (binding.displayText.text.isEmpty()) {
-            Toast.makeText(applicationContext, "Please write a condition! ", Toast.LENGTH_SHORT).show()
+            val stringText = getString(R.string.please_write_a_condition)
+            Toast.makeText(applicationContext, stringText, Toast.LENGTH_SHORT).show()
             return
         }
 
         var variableSymbol = binding.displayText.text.toString()
-        variableSymbol = variableSymbol.replace("÷", "/")
-        variableSymbol = variableSymbol.replace("×", "*")
+        val stringDivide = getString(R.string.divide)
+        val stringMultiply = getString(R.string.multiply)
+        variableSymbol = variableSymbol.replace(stringDivide, "/")
+        variableSymbol = variableSymbol.replace(stringMultiply, "*")
 
 
         val result: Double
@@ -78,7 +84,8 @@ class MainActivity : AppCompatActivity() {
             val expression = ExpressionBuilder(variableSymbol).build()
             result = expression.evaluate()
         } catch (t: Throwable) {
-            Toast.makeText(applicationContext, "Can not calculate this expression!", Toast.LENGTH_SHORT).show()
+            val stringText = getString(R.string.can_not_calculate_this_expression)
+            Toast.makeText(applicationContext, stringText, Toast.LENGTH_SHORT).show()
             return
         }
 
@@ -102,52 +109,63 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun oneBtn(view: View) {
-        updateText("1")
+        val stringText = getString(R.string.one)
+        updateText(stringText)
     }
 
     fun twoBtn(view: View) {
-        updateText("2")
+        val stringText = getString(R.string.two)
+        updateText(stringText)
     }
 
     fun threeBtn(view: View) {
-        updateText("3")
+        val stringText = getString(R.string.three)
+        updateText(stringText)
     }
 
     fun addBtn(view: View) {
-        updateText("+")
+        val stringText = getString(R.string.add)
+        updateText(stringText)
     }
 
     fun fourBtn(view: View) {
-        updateText("4")
+        val stringText = getString(R.string.four)
+        updateText(stringText)
     }
 
     fun fiveBtn(view: View) {
-        updateText("5")
+        val stringText = getString(R.string.five)
+        updateText(stringText)
     }
 
     fun sixBtn(view: View) {
-        updateText("6")
+        val stringText = getString(R.string.six)
+        updateText(stringText)
     }
 
     fun subtractBtn(view: View) {
-        updateText("-")
+        val stringText = getString(R.string.subtract)
+        updateText(stringText)
     }
 
     fun sevenBtn(view: View) {
-        //buttonEffect(findViewById(R.id.sevenBTN))
-        updateText("7")
+        val stringText = getString(R.string.seven)
+        updateText(stringText)
     }
 
     fun eightBtn(view: View) {
-        updateText("8")
+        val stringText = getString(R.string.eight)
+        updateText(stringText)
     }
 
     fun nineBtn(view: View) {
-        updateText("9")
+        val stringText = getString(R.string.nine)
+        updateText(stringText)
     }
 
     fun multiplyBtn(view: View) {
-        updateText("×")
+        val stringText = getString(R.string.multiply)
+        updateText(stringText)
     }
 
     fun clearBtn(view: View) {
@@ -155,16 +173,19 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun parenthesesOpenBtn(view: View) {
-        updateText("(")
+        val stringText = getString(R.string.parentheses_open)
+        updateText(stringText)
     }
 
     fun parenthesesClosedBtn(view: View) {
-        updateText(")")
+        val stringText = getString(R.string.parentheses_closed)
+        updateText(stringText)
 
     }
 
     fun divideBtn(view: View) {
-        updateText("÷")
+        val stringText = getString(R.string.divide)
+        updateText(stringText)
     }
 
     fun buttonPressed(view: View) {
